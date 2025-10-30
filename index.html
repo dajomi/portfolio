@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>김다정 dajeong Kim Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-mint: #21ded7;
+      --mint-dark: #0fd6be;
+      --mint-light: #e0fafa;
+      --main-blue: #39A0FF;
+      --text-main: #062f39;
+      --gray-bg: #f9fafc;
+      --section-bg: linear-gradient(120deg,#e0fafa 80%,#fff 100%);
+      --footer-bg: #022a2c;
+      --footer-text: #cce9ea;
+      --footer-link: #9ffeff;
+      --card-radius: 30px;
+      --card-shadow: 0 10px 32px 0 rgba(33,222,215,0.10);
+      --transition: .2s cubic-bezier(.46,.03,.52,.96);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0; font-family:'Inter', 'Noto Sans KR',sans-serif;
+      background: var(--gray-bg); color:var(--text-main);
+    }
+    a { text-decoration: none; color: inherit; }
+    /* HEADER NAV */
+    .nav-wrap {
+      background: #fff;
+      border-bottom: 1px solid #e0f6f5;
+      box-shadow: 0 2px 18px rgba(33,222,215,.06);
+      position: sticky; top:0;z-index:1000;
+    }
+    .nav {
+      max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:86px;padding:0 40px;
+    }
+    .logo {
+      font-weight:900;font-size:2.1rem;letter-spacing:-.01em;
+      background:linear-gradient(90deg,var(--main-mint),#8df1e6 60%,#26A6F4);-webkit-background-clip:text;color:transparent;background-clip:text;
+    }
+    .nav-menu {
+      display:flex;gap:2em;font-size:1.1em;font-weight:700;
+    }
+    .nav-menu a {
+      color:#0a8992;padding:12px 18px;border-radius:18px;transition:background var(--transition),color var(--transition);
+    }
+    .nav-menu a:hover,.nav-menu a.active { background:var(--mint-light); color:var(--main-mint);}
+    .nav-cta {
+      background: linear-gradient(90deg,var(--main-mint),#25b3ff 80%);
+      color:#fff;padding:13px 44px;border:none;border-radius:24px;font-size:1.06em;font-weight:900;box-shadow:var(--card-shadow);cursor:pointer;margin-left:30px;transition:filter .12s;
+    }
+    .nav-cta:hover { filter:brightness(1.07);}
+    /* HERO */
+    .hero {
+      width:100%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:94px 10px 82px 10px;box-shadow:var(--card-shadow);margin:0 auto;max-width:1150px;border-radius:40px;margin-top:38px;
+    }
+    .hero-title {
+      font-size:3.1em;font-weight:900;letter-spacing:-0.035em;margin-bottom:.25em;margin-top:0;color:var(--main-blue);text-align:center;
+    }
+    .hero-desc {font-size:1.38em;text-align:center;line-height:1.45;max-width:700px;color:#188090;margin:0 0 38px 0;font-weight:600;}
+    .hero-btn {
+      background: linear-gradient(90deg,var(--main-mint),var(--main-blue));color:#fff;font-weight:900;font-size:1.1em;padding:16px 56px;border:none;border-radius:28px;box-shadow:0 6px 24px #21ded744;cursor:pointer;transition:filter .13s;
+    }
+    .hero-btn:hover { filter:brightness(1.10);}
+    /* SECTIONS */
+    section {width:100%;}
+    .section {
+      padding:84px 0 72px 0;
+      background: var(--section-bg);
+      border-radius:56px;margin:56px auto;max-width:1120px;
+      box-shadow: var(--card-shadow);
+      position:relative;
+    }
+    .section-title {
+      font-size:2.2em;font-weight:900;text-align:center;color:#068;
+      letter-spacing:-.025em;margin-bottom:16px;
+      margin-top:0;
+    }
+    .section-desc {
+      text-align:center;font-size:1.17em;color:#24b3b3;font-weight:600;margin-bottom:42px;
+    }
+    .card-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:38px;max-width:950px;margin:0 auto;
+    }
+    .card {
+      background:#fff;border-radius:var(--card-radius);padding:44px 34px;box-shadow:var(--card-shadow);min-height:190px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;transition:box-shadow .17s;
+    }
+    .card:hover { box-shadow:0 12px 38px #21ded722;}
+    .card-icon {font-size:2.5em; margin-bottom: 12px;}
+    .card-title {font-size:1.19em;font-weight:bold;color:#019c93;margin-bottom:7px;}
+    /* CONTACT */
+    .contact-list {list-style:none;padding:0;text-align:center;}
+    .contact-list li {margin-bottom:12px;font-size:1.13em;}
+    .contact-list a { color:#2996f1;font-weight:600;}
+    /* FOOTER */
+    .footer {
+      background: var(--footer-bg); color:var(--footer-text);padding:48px 0 20px 0;margin-top:64px;letter-spacing:0.018em;text-align:center;font-size:1.07em; }
+    .footer a{color:var(--footer-link);}
+    /* RESPONSIVE */
+    @media(max-width:950px){.section{padding:48px 0 34px 0;}}
+    @media(max-width:650px){
+      .nav{flex-direction:column;height:auto;padding:0 7px;gap:7px;}
+      .hero{padding:44px 2vw 34px 2vw;border-radius: 20px;}
+      .section{border-radius:24px;padding:33px 0 20px 0;margin:14px auto;}
+      .section-title{font-size:1.35em}
+      .card{padding:23px 8px 18px 13px;min-height:120px;}
+      .card-grid{gap:13px;} 
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <span class="logo">김다정&nbsp;&nbsp;dajeong Kim</span>
+      <div class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#career">Career</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Contact Me</button>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <h1 class="hero-title">지리정보와 데이터로 세상을 이해합니다</h1>
+    <p class="hero-desc">실내/도로 네트워크 결합, GIS, 3D 시뮬레이션 등<br>공간정보 데이터와 기술을 융합하여 전문가로 성장하고 있습니다.</p>
+    <button class="hero-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});">더 알아보기</button>
+  </section>
+
+  <section class="section" id="about">
+    <h2 class="section-title">About</h2>
+    <div class="section-desc">경희대학교 지리학과 졸업(석사)<br>공간분석, 시뮬레이션, 데이터 기반 문제해결에 강점</div>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🎓</span><div class="card-title">학력</div>경희대학교 지리학과 학사/석사, 공간정보 전공</div>
+      <div class="card"><span class="card-icon">💡</span><div class="card-title">관심</div>유니티 기반 3D 네트워크 시뮬레이션, 공간 데이터 분석</div>
+      <div class="card"><span class="card-icon">🧭</span><div class="card-title">차별점</div>건물-도로 융합 최적경로/구조 알고리즘 연구 및 실제 적용</div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="section-desc">GIS·공간분석・Unity3D・Python・C#・A*경로 알고리즘</div>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">👩‍💻</span><div class="card-title">개발</div>Unity(C#), Python, QGIS, JavaScript</div>
+      <div class="card"><span class="card-icon">🔀</span><div class="card-title">알고리즘</div>A*, 네트워크 최적화, 3D-경로탐색</div>
+      <div class="card"><span class="card-icon">🌐</span><div class="card-title">협업</div>학회/프로젝트·팀 리딩, 발표 경험</div>
+    </div>
+  </section>
+
+  <section class="section" id="career">
+    <h2 class="section-title">Career</h2>
+    <div class="section-desc">연구 및 실무 경험</div>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">📊</span><div class="card-title">3D 시뮬레이션 프로젝트</div>Unity 엔진+공간데이터로 경로 탐색, 현실적 구조 시간 산정</div>
+      <div class="card"><span class="card-icon">🏢</span><div class="card-title">GIS 분석 경력</div>건물 및 도로 네트워크 공간분석, 수치지형도 활용</div>
+      <div class="card"><span class="card-icon">🔬</span><div class="card-title">논문/학회 발표</div>공간정보 응용/시뮬레이션 관련 복수 발표 및 수상</div>
+    </div>
+  </section>
+
+  <section class="section" id="project">
+    <h2 class="section-title">Project</h2>
+    <div class="section-desc">실내외 네트워크 기반 구조 시뮬레이션 등 대표 프로젝트</div>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🚒</span><div class="card-title">화재 구조 시뮬레이션</div>A*알고리즘·Unity, 공간데이터로 실제 구조 상황 시뮬레이터 구현</div>
+      <div class="card"><span class="card-icon">🗺️</span><div class="card-title">GIS 비쥬얼·분석</div>수치지형도, 공간네트워크, 실측 데이터 시각화</div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="section-desc">문의/협업 제안 언제든 환영합니다!</div>
+    <ul class="contact-list">
+      <li>📧 dajung.kim@email.com</li>
+      <li>🔗 <a href="https://github.com/your-github" target="_blank">GitHub</a></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 김다정&nbsp;dajeong Kim.<br>본 페이지 디자인·구조는 <a href="https://www.workup.plus/" target="_blank">workup.plus</a>를 레퍼런스했습니다.<br>
+    사업자: 김다정 dajeong Kim | 연락: dajung.kim@email.com
+  </footer>
+</body>
+</html>
